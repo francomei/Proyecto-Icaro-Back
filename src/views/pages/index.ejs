@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Icaro API - Trabajo Integrador</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>ICARO API v1</h1>
+      <h3>Trabajo Integrador</h3>
+      <p>
+        A continuación están los <i class="textItalic">endpoints</i> de los cuales se obtendrán los recursos para
+        completar el Trabajo Integrador de la Diplomatura. :gafas_de_sol:<br /><br />
+        Esta API es <b>pública</b> por lo que puede darse que algún recurso no retorne lo esperado :prohibido::tono_de_piel-3:, puesto que otra
+        persona puede estar en simultáneo borrando o agregando algún recurso. :libros:
+      </p>
+      <h3>Recursos</h3>
+      <ul>
+        <li>
+          <p><b class="green">GET</b> :cara_con_monóculo: Listado Usuarios :apuntando_hacia_la_derecha::tono_de_piel-3: <a href="/api/users">.../api/users</a></p>
+        </li>
+        <li>
+          <p>
+            <b class="green">GET</b> :cara_con_monóculo: Listado Mensajes Recibidos :apuntando_hacia_la_derecha::tono_de_piel-3: .../api/users/<i class="gray">username</i
+            >/messages/inbox
+          </p>
+        </li>
+        <li>
+          <p>
+            <b class="green">GET</b> :cara_con_monóculo: Listado Mensajes Enviados :apuntando_hacia_la_derecha::tono_de_piel-3: .../api/users/<i class="gray">username</i
+            >/messages/sent
+          </p>
+        </li>
+        <li>
+          <p><b class="blue">POST</b> :buzón: Envio Datos Register :apuntando_hacia_la_derecha::tono_de_piel-3: .../api/users</p>
+          <p>
+            Esta petición deberá enviar por <i class="textItalic">body</i> un objeto que contenga los siguientes seis
+            campos:
+          </p>
+          <div class="code">
+            <div>
+              <code>
+                { <br />
+                <ul>
+                  "username": "xxxxxx",<br />
+                  "firstName": "xxxxxx",<br />
+                  "lastName": "xxxxxx",<br />
+                  "password": "xxxxxx",<br />
+                  "country": "xxxxxx",<br />
+                  "city": "xxxxxx"
+                </ul>
+                }
+              </code>
+            </div>
+          </div>
+          <p>El campo <i class="textItalic">id</i> es auto generado por la API</p>
+        </li>
+        <li>
+          <p><b class="blue">POST</b> :buzón: Envio Datos Login :apuntando_hacia_la_derecha::tono_de_piel-3: .../api/login</p>
+          <p>
+            Esta petición deberá enviar por <i class="textItalic">body</i> un objeto que contenga los siguientes campos:
+          </p>
+          <div class="code">
+            <div>
+              <code>
+                { <br />
+                <ul>
+                  "username": "xxxxxx",<br />
+                  "password": "xxxxxx",<br />
+                </ul>
+                }
+              </code>
+            </div>
+          </div>
+        </li>
+        <li>
+          <p><b class="blue">POST</b> :buzón: Envio Datos Mensaje :apuntando_hacia_la_derecha::tono_de_piel-3: .../api/users/<i class="gray">username</i>/messages</p>
+          <p>
+            Esta petición deberá enviar por <i class="textItalic">body</i> un objeto que contenga los siguientes campos:
+          </p>
+          <div class="code">
+            <div>
+              <code>
+                { <br />
+                <ul>
+                  "receiverId": "xxxxxx",<br />
+                  "text": "xxxxxx"
+                </ul>
+                }
+              </code>
+            </div>
+          </div>
+          <p>
+            El campo <i class="textItalic">senderId</i> se obtiene automáticamente desde los params de la URL a través
+            del <i class="textItalic">username</i>
+          </p>
+        </li>
+        <li>
+          <p><b class="red">DELETE</b> :papelera: Borrado Mensaje por ID :apuntando_hacia_la_derecha::tono_de_piel-3: .../api/messages/<i class="gray">messageId</i></p>
+        </li>
+      </ul>
+      <br />
+      <h4><a target="_blank" href="/api">:casa: Ésta es la URL base</a></h4>
+    </div>
+  </body>
+</html>
