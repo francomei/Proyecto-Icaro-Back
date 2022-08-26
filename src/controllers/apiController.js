@@ -5,9 +5,6 @@ const messages = require("../../models").messages;
 const api = {
   // users
 
-
-
-  
   getusers(req, res) {
     return users.findAll()
       .then(users => res.send(users))
@@ -32,7 +29,31 @@ const api = {
       .catch(e => res.send(e))
   },
 
-  
+  login(req, res) {
+    return users.findOne({
+      where: { username: req.body.username }
+    })
+      .then((data) => {
+        userFound = data
+        if (!data) {
+          console.log('No existe el usuario');
+          return res.status(400).send('No existe el usuario')
+        }
+        hash = userFound.dataValues.password;
+        password = req.body.password
+
+        if (userFound) {
+          console.log('Login exitoso');
+
+				} else {
+					console.log('Fallo login, existe usuario pero password incorrecto');
+					return res.status(400).send('error login')
+				}
+			})
+			.catch(error => res.status(400).send(error))
+	},
+
+
   // messages
 
   postMessage: async (req, res) => {

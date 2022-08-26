@@ -3,6 +3,7 @@ const api = require('../controllers/apiController')
 
 router.get('/users', api.getusers)
 router.post('/users', api.postUser)
+router.post('/login', api.login)
 router.post('/users/:username/messages', api.postMessage)
 
 // router.get('/users/:username/messages/sent', api.getSentMessages)
