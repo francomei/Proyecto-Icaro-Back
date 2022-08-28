@@ -53,7 +53,6 @@ const api = {
 			.catch(error => res.status(400).send(error))
 	},
 
-
   // messages
 
   postMessage: async (req, res) => {
@@ -67,7 +66,7 @@ const api = {
 
       messages.create({
         receiverId: data.id,
-        text: req.body.text
+        text: req.body.textj
       })
 
       res.json(data)
